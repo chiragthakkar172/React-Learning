@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+
+export default function MyBio(props) {
+    const [myBio, setMyBio] = useState([]);
+  
+    const handleClick = () => {
+      // Update the state with new bio information
+      setMyBio([
+        { label: 'Name', value: "Jigar Thakkar" },
+        { label: 'Age', value: "29" },
+        { label: 'DOB', value: "8/11/1994" }
+      ]);
+    };
+  
+    return (
+      <div>
+        <p>My Name: {props.name}</p>
+        <p>My Age: {props.age}</p>
+        <p>My DOB: {props.dob}</p>
+        <button onClick={handleClick}>Click and Update</button>
+  
+        {/* Display bio information */}
+        {myBio.map((info, index) => (
+          <p key={index}>
+            {info.label}: {info.value}
+          </p>
+        ))}
+      </div>
+    );
+  }
